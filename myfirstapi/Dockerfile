@@ -20,6 +20,7 @@ USER axway-user
 # Denotes to copy all files in the service to 'app' folder in the container
 #COPY --chown=axway-user:axway-group . /app
 COPY . /app
+RUN set -ex && apk --no-cache add sudo
 RUN sudo chown -R axway-user:axway-group /app
 
 # Install service dependencies relevant for production builds skipping all development dependencies.
